@@ -2,45 +2,36 @@
 
 # Created by: Mohammad-al-buraiki
 # Created on January 2021
-# This program is to claculate the total of 
-# items prices plus tax
+# This program uses a 2D array
 
 
-def calculation(food_item, food_cost):
-    # here is the calculation
+def average_percent(mark_list):
+    # calculation of the mark
     total = 0
-    for loop_counter in range (len(food_item)):
-        item = food_item[loop_counter]
-        price = food_cost[loop_counter]
-        total += price
+    for loop_counter in range (len(mark_list)):
+        number = mark_list[loop_counter]
+        total += number
+        
+    multiply_value = 10 * len(mark_list)
+    average = total / multiply_value
+    average = average * 10
     
-    print("")
-    print("The total is {0} $.".format((total)))
-    tax = total * 0.15
-    plus_tax = tax + total
-
-    return plus_tax
+    return average
 
 
 def main():
+    # getting user input
 
-    # This function gets input
-    food_item = []
-    food_cost = []
+    mark_list = []
 
-    # Input
-    print("Enter grocery items.\n")
+    # input
     while True:
-        single_food_item = input("Enter food item (when done click 'd'): ")
-        if single_food_item != "d":
-            food_item.append(single_food_item)
-            single_food_item_cost = float(input("Enter the cost of {0}: "
-                                          .format(single_food_item)))
-            food_cost.append(single_food_item_cost)
+        mark = input("Enter 1 mark at a time. Enter -1 to end: ")
+        if mark != "-1":
+            mark_list.append(mark)
         else:
-            tax = calculation(food_item, food_cost)
-            print("The total with + tax is {0} $.".format(tax))
-            break
+            average = average_percent(mark_list)
+            print("The average is {0} %.".format(average))
 
 
 if __name__ == "__main__":
