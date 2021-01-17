@@ -12,11 +12,10 @@ def average_percent(mark_list):
         number = mark_list[loop_counter]
         total += number
 
-        
     multiply_value = 10 * len(mark_list)
     average = total / multiply_value
     average = average * 10
-    
+
     return average
 
 
@@ -26,16 +25,20 @@ def main():
     mark_list = []
 
     # input
-    print("Enter 1 mark at a time. Enter -1 to end")
+    print("Enter 1 mark at a time 1 - 100. Enter -1 to end")
     while True:
-        mark = input("Enter the mark: ")
-        if mark != int(mark):
-            if mark != "-1":
-                mark_list.append(mark)
-            else:
-                average = average_percent(mark_list)
-    
-    print("The average is {0} %.".format(average))
+        mark = int(input("Enter the mark: "))
+        if mark > 100:
+            print("Sorry that was a big integer")
+        elif mark < -1:
+            print("Sorry that was a small integer")
+        elif mark == -1:
+            average = average_percent(mark_list)
+            print("")
+            print("The average is {0} %.".format(average))
+            break
+        else:
+            mark_list.append(mark)
 
 
 if __name__ == "__main__":
