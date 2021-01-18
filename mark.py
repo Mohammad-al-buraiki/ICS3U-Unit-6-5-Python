@@ -2,7 +2,7 @@
 
 # Created by: Mohammad-al-buraiki
 # Created on January 2021
-# This program uses a 2D array
+# This program is to find the average of the marks
 
 
 def average_percent(mark_list):
@@ -35,7 +35,7 @@ def main():
         elif mark == -1:
             average = average_percent(mark_list)
             print("")
-            print("The average is {0} %.".format(average))
+            print("The average is {0: .1f} %.".format(average))
             break
         else:
             mark_list.append(mark)
